@@ -1,0 +1,42 @@
+export const estate = [
+  {
+    estate: 'Палатка',
+    hrivna: 1000,
+    rating: 5,
+    icon: 'camping',
+    service: 'Купить палатку',
+    price: '1.000грн',
+  },
+  {
+    estate: 'Номер в отеле',
+    hrivna: 5000,
+    rating: 10,
+    icon: 'hotel',
+    service: 'Снять номер в отеле',
+    price: '5.000грн',
+  },
+  {
+    estate: '1-комнатная квартира',
+    hrivna: 300000,
+    rating: 30,
+    icon: 'roomSingle',
+    service: 'Купить 1-комнатную квартиру',
+    price: '300.000грн',
+  },
+  {
+    estate: '2-комнатная квартира',
+    hrivna: 900000,
+    rating: 40,
+    icon: 'roomDouble',
+    service: 'Купить 2-комнатную квартиру',
+    price: '900.000грн',
+  },
+  {
+    estate: 'Пентхаус',
+    hrivna: 2000000,
+    rating: 70,
+    icon: 'skyscraper',
+    service: 'Купить пентхаус',
+    price: '2.000.000грн',
+  },
+];

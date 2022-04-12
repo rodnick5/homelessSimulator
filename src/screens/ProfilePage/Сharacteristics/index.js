@@ -1,0 +1,1 @@
+export {default as Characteristics} from '../Сharacteristics/PersonalInformation/Characteristics'

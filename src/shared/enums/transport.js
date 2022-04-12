@@ -1,0 +1,42 @@
+export const transport = [
+  {
+    transport: 'Кроссовки',
+    hrivna: 500,
+    rating: 2,
+    icon: 'boot',
+    service: 'Купить кроссовки',
+    price: '500грн',
+  },
+  {
+    transport: 'Велосипед',
+    hrivna: 2000,
+    rating: 2,
+    icon: 'bicycle',
+    service: 'Купить велосипед',
+    price: '2.000грн',
+  },
+  {
+    transport: 'Подержаная машина',
+    dollar: 1000,
+    rating: 2,
+    icon: 'oldCar',
+    service: 'Купить подержаную машину',
+    price: '1.000$',
+  },
+  {
+    transport: 'Машина с салона',
+    dollar: 10000,
+    rating: 2,
+    icon: 'newCar',
+    service: 'Купить машину с салона',
+    price: '10.000$',
+  },
+  {
+    transport: 'Лимузин',
+    dollar: 50000,
+    rating: 2,
+    icon: 'limousine',
+    service: 'Купить лимузин',
+    price: '50.000$',
+  },
+];
