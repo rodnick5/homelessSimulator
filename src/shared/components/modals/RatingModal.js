@@ -20,7 +20,6 @@ const RatingModal = ({visible, backdropOpacity = 0.4, onBackdropPress}) => {
 const styles = StyleSheet.create({
   modalBlock: {
     flex: 1,
-    width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',

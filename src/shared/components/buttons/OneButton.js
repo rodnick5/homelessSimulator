@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const OneButton = ({callback, text}) => {
+const OneButton = ({callback, text, bWidth = '100%', bHeight = 45 , bMarginTop = 20, bFontSize = 20}) => {
   return (
-    <TouchableOpacity onPress={() => callback()} style={styles.touchableBlock}>
+    <TouchableOpacity onPress={() => callback()} style={[styles.touchableBlock, {width: bWidth, height: bHeight, marginTop: bMarginTop }]}>
       <View style={styles.wrapperBlock}>
-        <Text style={styles.buttonText}>{text}</Text>
+        <Text style={[styles.buttonText, {fontSize: bFontSize}]}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -13,10 +13,7 @@ const OneButton = ({callback, text}) => {
 
 const styles = StyleSheet.create({
   touchableBlock: {
-    width: '100%',
-    height: 50,
     alignItems: 'center',
-    marginTop: 20,
     marginBottom: 20,
   },
   wrapperBlock: {
@@ -29,7 +26,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#ffffff',
-    fontSize: 20,
   },
 });
 

@@ -1,31 +1,43 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  health: 50,
-  food: 50,
+  health: 1,
+  food: 0,
   happiness: 50,
   drunk: 50,
-  hrivna: 50000000,
-  dollar: 0,
-  bottles: 0,
+  hrivna: 500,
+  dollar: 444,
+  bottles: 10,
   age: 18,
   days: 363,
   transport: 'Босиком',
   estate: 'Коробка',
   rating: 5,
   status: 'Бомж',
+  died: false
 };
 
 const userInfoSlice = createSlice({
   name: 'userInfo',
   initialState,
   reducers: {
+    setDied(state, action){
+      state.died = action.payload
+    },
     setStatus(state, action) {
       state.status = action.payload.status;
     },
-    setCurrencyExchange(state, action){
+    setDollarBuying(state, action){
       state.hrivna -= action.payload.hrivna
       state.dollar += action.payload.dollar
+    },
+    setHrivnaBuying(state, action){
+      state.hrivna += action.payload.hrivna
+      state.dollar -= action.payload.dollar
+    },
+    setBottleExchange(state, action){
+      state.bottles -= action.payload.bottles
+      state.hrivna += action.payload.hrivna
     },
     setEstate(state, action) {
       if (
@@ -55,7 +67,7 @@ const userInfoSlice = createSlice({
     collectBottles(state, action) {
       state.bottles += 1;
     },
-    hungryPlus(state, action) {
+    foodPlus(state, action) {
       if (state.food == 100 || state.hrivna < action.payload.hrivna) {
         return;
       }
@@ -67,7 +79,7 @@ const userInfoSlice = createSlice({
         state.hrivna -= action.payload.hrivna;
       }
     },
-    hungryMinus(state, action) {
+    foodMinus(state, action) {
       state.food -= 1;
     },
     drunkPlus(state, action) {
@@ -132,15 +144,18 @@ const userInfoSlice = createSlice({
 const {reducer, actions} = userInfoSlice;
 export default reducer;
 export const {
+  setDied,
   setStatus,
   setEstate,
   setTransport,
-  setCurrencyExchange,
+  setDollarBuying,
+  setHrivnaBuying,
+  setBottleExchange,
   collectBottles,
-  hungryPlus,
   drunkPlus,
   drunkMinus,
-  hungryMinus,
+  foodPlus,
+  foodMinus,
   healthMinus,
   healthPlus,
   happinessMinus,

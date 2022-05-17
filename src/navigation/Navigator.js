@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Characteristics from '../screens/ProfilePage/Сharacteristics/Characteristics';
 import FoodStore from '../screens/FoodStore/FoodStore';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useDispatch, useSelector} from 'react-redux';
 import {
-  hungryMinus,
+  foodMinus,
   healthMinus,
   healthPlus,
   daysPlus,
@@ -13,26 +13,33 @@ import {
   happinessMinus,
   happinessPlus,
 } from '../reducers/userInfo';
-import {setCourse} from '../reducers/course';
+import {setCourses} from '../reducers/courses';
 import Ico from '../assets/Ico';
 import HealthStore from '../screens/HealthStore/HealthStore';
 import WorkStore from '../screens/WorkStore/WorkStore';
 import HomelessStore from '../screens/HomelessStore/HomelessStore';
 import PurchaseStore from '../screens/PurchaseStore/PurschaseStore';
+import {foodSelector, drunkSelector, happinessSelector, healthSelector} from '../shared/selectors'
 
 const Navigator = () => {
   const Tab = createBottomTabNavigator();
   const dispatch = useDispatch();
-  const food = useSelector(state => state.userInfo.food);
-  const days = useSelector(state => state.userInfo.days);
-  const health = useSelector(state => state.userInfo.health);
-  const drunk = useSelector(state => state.userInfo.drunk);
-  const happiness = useSelector(state => state.userInfo.happiness);
-  const course = useSelector(state => state.course.course);
+  const health = useSelector(healthSelector)
+  const food = useSelector(foodSelector)
+  const drunk = useSelector(drunkSelector)
+  const happiness = useSelector(happinessSelector)
+
 
   useEffect(() => {
-    const currentCourse = (Math.random() * (33 - 28) + 28).toFixed(1);
-    dispatch(setCourse(currentCourse));
+    const moneyCourse = (Math.random() * (33 - 28) + 28).toFixed();
+    const bottleCourse = (Math.random() * (5 - 1) + 1).toFixed()
+    dispatch(setCourses({moneyCourse, bottleCourse}));
+    const dayTimer = setInterval(() => {
+      dispatch(daysPlus());
+    }, 60000);
+    return () => {
+      clearInterval(dayTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -41,7 +48,7 @@ const Navigator = () => {
         if (food == 0) {
           dispatch(healthMinus());
         } else {
-          dispatch(hungryMinus());
+          dispatch(foodMinus());
         }
         if (food >= 90 && happiness >= 90) {
           dispatch(healthPlus({health: 1, hrivna: 0}));
@@ -52,15 +59,6 @@ const Navigator = () => {
       clearTimeout(hungryTimer);
     };
   }, [food, health]);
-
-  useEffect(() => {
-    let dayTimer = setTimeout(() => {
-      dispatch(daysPlus());
-    }, 60000);
-    return () => {
-      clearTimeout(dayTimer);
-    };
-  }, [days]);
 
   useEffect(() => {
     if (drunk >= 0 && happiness != 0) {

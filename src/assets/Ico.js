@@ -43,12 +43,12 @@ import newCar from './icons/PurchaseStore/newCar.svg'
 import limousine from './icons/PurchaseStore/limousine.svg'
 import boot from './icons/PurchaseStore/boot.svg'
 
-import Characteristics from './icons/lowerNavigation/Characteristics.svg'
-import FoodStore from './icons/lowerNavigation/FoodStore.svg'
-import HealthStore from './icons/lowerNavigation/HealthStore.svg'
-import WorkStore from './icons/lowerNavigation/WorkStore.svg'
-import HomelessStore from './icons/lowerNavigation/HomelessStore.svg'
-import PurchaseStore from './icons/lowerNavigation/PurchaseStore.svg'
+import Characteristics from './icons/bottomNavigation/Characteristics.svg'
+import FoodStore from './icons/bottomNavigation/FoodStore.svg'
+import HealthStore from './icons/bottomNavigation/HealthStore.svg'
+import WorkStore from './icons/bottomNavigation/WorkStore.svg'
+import HomelessStore from './icons/bottomNavigation/HomelessStore.svg'
+import PurchaseStore from './icons/bottomNavigation/PurchaseStore.svg'
 
 
 const icons = { 

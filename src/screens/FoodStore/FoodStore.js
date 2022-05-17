@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, ScrollView, SafeAreaView} from 'react-native';
 import InformationTitle from '../../shared/components/profile/InformationTitle';
 import ServiceType from '../../shared/components/services/ServiceType';
-import {hungryPlus, drunkPlus} from '../../reducers/userInfo';
+import {foodPlus, drunkPlus} from '../../reducers/userInfo';
 import MoneyModal from '../../shared/components/modals/MoneyModal';
 import {food} from '../../shared/enums/food';
 import {drunk} from '../../shared/enums/drunk';
@@ -16,7 +16,7 @@ const FoodStore = () => {
         fill={item.fill}
         service={item.service}
         price={item.price}
-        event={hungryPlus}
+        event={foodPlus}
         value={item.value}
         key={item.service}
         setMoneyModalVisible={setMoneyModalVisible}

@@ -21,6 +21,6 @@ export const happiness = [
     icon: 'sport',
     service: 'Спортзал',
     price: '200грн',
-    value: {hrivna: 100, happiness: 20},
+    value: {hrivna: 200, happiness: 20},
   },
 ];

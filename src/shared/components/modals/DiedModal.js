@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 
-const MoneyModal = ({visible, backdropOpacity = 0.4, onBackdropPress}) => {
+const DiedModal = ({visible, backdropOpacity = 0.4, onBackdropPress}) => {
   return (
     <Modal
       style={styles.modalBlock}
@@ -12,7 +12,7 @@ const MoneyModal = ({visible, backdropOpacity = 0.4, onBackdropPress}) => {
       coverScreen={true}
       onBackdropPress={onBackdropPress}>
       <View style={styles.wrapperBlock}>
-        <Text style={styles.infoText}>У вас недостаточно средств</Text>
+        <Text style={styles.infoText}>К сожалению ваш персонаж умер. Вам придется начинать всё сначала.</Text>
       </View>
     </Modal>
   );
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   wrapperBlock: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderRadius: 8,
     height: 100,
-    width: 230,
+    width: 220,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MoneyModal;
+export default DiedModal;

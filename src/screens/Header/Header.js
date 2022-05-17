@@ -1,14 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Ico from '../../assets/Ico';
+import { setDied } from '../../reducers/userInfo';
 const Header = () => {
+  
   const health = useSelector(state => state.userInfo.health);
   const food = useSelector(state => state.userInfo.food);
   const happiness = useSelector(state => state.userInfo.happiness);
   const drunk = useSelector(state => state.userInfo.drunk);
   const hrivna = useSelector(state => state.userInfo.hrivna);
   const dollar = useSelector(state => state.userInfo.dollar);
+  const dispatch = useDispatch()
+
+  if (health == 0){
+      dispatch(setDied(true))
+  }
+
   return (
     <View style={styles.headerBackground}>
       <View style={styles.blockWrapper}>
