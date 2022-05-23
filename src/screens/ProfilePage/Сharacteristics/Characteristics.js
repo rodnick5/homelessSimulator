@@ -3,7 +3,6 @@ import {ScrollView, SafeAreaView, Text, View, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import BlockInfoType from '../../../shared/components/profile/BlockInfoType';
 import InformationTitle from '../../../shared/components/profile/InformationTitle';
-import Sound from 'react-native-sound';
 import {
   setBottleExchange,
   setDied,
@@ -34,19 +33,7 @@ const Characteristics = () => {
   const [exchangeMoney, setExchangeMoney] = useState(5);
   const [receptionBottles, setReceptionBottles] = useState(1);
   const [receptionHrivna, setReceptionHrivna] = useState(1);
-  const [music, setMusic] = useState(null);
-  const play = () => {
-    let track = new Sound('track.mp3', Sound.MAIN_BUNDLE, err => {
-      if (err) {
-        console.log('error', err);
-        return;
-      }
-      track.play(success => {
-        console.log('end', success);
-      });
-    });
-    setMusic(track);
-  };
+
   useEffect(() => {
     const exchangedBottle = receptionBottles * bottleCourse;
     setReceptionHrivna(exchangedBottle);

@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  health: 1,
-  food: 0,
+  health: 50,
+  food: 50,
   happiness: 50,
   drunk: 50,
   hrivna: 500,
@@ -64,7 +64,7 @@ const userInfoSlice = createSlice({
         state.rating += action.payload.rating;
       }
     },
-    collectBottles(state, action) {
+    collectBottles(state) {
       state.bottles += 1;
     },
     foodPlus(state, action) {
@@ -79,7 +79,7 @@ const userInfoSlice = createSlice({
         state.hrivna -= action.payload.hrivna;
       }
     },
-    foodMinus(state, action) {
+    foodMinus(state) {
       state.food -= 1;
     },
     drunkPlus(state, action) {
@@ -94,7 +94,7 @@ const userInfoSlice = createSlice({
         state.hrivna -= action.payload.hrivna;
       }
     },
-    drunkMinus(state, action) {
+    drunkMinus(state) {
       state.drunk -= 1;
     },
     healthPlus(state, action) {
@@ -109,7 +109,7 @@ const userInfoSlice = createSlice({
         state.hrivna -= action.payload.hrivna;
       }
     },
-    healthMinus(state, action) {
+    healthMinus(state) {
       state.health -= 1;
     },
     happinessPlus(state, action) {
@@ -124,7 +124,7 @@ const userInfoSlice = createSlice({
         state.hrivna -= action.payload.hrivna;
       }
     },
-    happinessMinus(state, action) {
+    happinessMinus(state) {
       state.happiness -= 1;
     },
     hrivnaPlus(state, action) {
@@ -132,7 +132,7 @@ const userInfoSlice = createSlice({
         state.hrivna += action.payload.hrivna;
       } else return;
     },
-    daysPlus(state, action) {
+    daysPlus(state) {
       if (state.days == 364) {
         state.age += 1;
         state.days = 0;
